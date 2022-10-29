@@ -88,7 +88,7 @@
             ATN Company
           </a>
           <p>
-            The brand is present worldwide with 1000 facilities and has been growing since 1972.
+            The brand is present worldwide and has been growing since 2020.
           </p>
           <div class="footer_social">
             <a href="{{route('ui.thank')}}">
