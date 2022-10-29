@@ -45,17 +45,12 @@ class ManualAuthController extends Controller
                 'username', 'password' => ['required',
                     function ($attribute, $value, $fail) {//closure
                         $informations = AdminRepos::getAllAdmin();
-                        $a = 0;
                         foreach ($informations as $i) {
                             if (($value == $i->username) && (sha1($value) == $i->password)) {
-                                $a = 0;
                                 break;
                             } else {
-                                $a += 1;
+                                $fail('Username or password is not correct!');
                             }
-                        }
-                        if ($a != 0) {
-                            $fail('Username or password is not correct!');
                         }
                     }
                 ]/*,
