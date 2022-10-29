@@ -258,7 +258,7 @@
                 <p class="content-item">
                   <label>Full Name
 
-                    <input type="text" class="form-control" id="fullName_c" name="fullName_c" value="{{old('fullName_c')?? $customer->fullname_c}}">
+                    <input type="text" class="form-control" id="fullname_c" name="fullname_c" value="{{old('fullname_c')?? $customer->fullname_c}}">
                   </label>
                 </p>
 
