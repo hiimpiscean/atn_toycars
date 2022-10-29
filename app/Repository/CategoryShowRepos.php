@@ -27,7 +27,7 @@ class CategoryShowRepos
     public static function getCategoryWithProductsById($id_cate){
         $sql = 'select p.* ';
         $sql .= 'from product as p ';
-        $sql .= 'join category as c on p.categoryId = c.id_cate ';
+        $sql .= 'join category as c on p.categoryid = c.id_cate ';
         $sql .= 'where c.id_cate = ? ';
 
         return DB::select($sql, [$id_cate]);

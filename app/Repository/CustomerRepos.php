@@ -9,7 +9,7 @@ class CustomerRepos
     public static function getAllCustomer() {
         $sql = 'select c.* ';
         $sql .= 'from customer as c ';
-        $sql .= 'order by c.fullName_c';
+        $sql .= 'order by c.fullname_c';
 
         return DB::select ($sql);
     }
@@ -24,11 +24,11 @@ class CustomerRepos
 
     public static function insert($customer){
         $sql = 'insert into customer ';
-        $sql .= '(fullName_c, dob, gender, phone_c, email_c, address_c) ';
+        $sql .= '(fullname_c, dob, gender, phone_c, email_c, address_c) ';
         $sql .= 'values (?, ?, ?, ?, ?, ?) ';
 
         $result =  DB::insert($sql, [
-            $customer->fullName_c,
+            $customer->fullname_c,
             $customer->dob,
             $customer->gender,
             $customer->phone_c,
@@ -46,11 +46,11 @@ class CustomerRepos
 
     public static function update($customer){
         $sql = 'update customer ';
-        $sql .= 'set fullName_c = ?, dob = ?, gender = ?, phone_c = ?, email_c = ?, address_c = ? ';
+        $sql .= 'set fullname_c = ?, dob = ?, gender = ?, phone_c = ?, email_c = ?, address_c = ? ';
         $sql .= 'where id_c = ? ';
 
         DB::update($sql, [
-            $customer->fullName_c,
+            $customer->fullname_c,
             $customer->dob,
             $customer->gender,
             $customer->phone_c,

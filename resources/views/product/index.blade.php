@@ -467,7 +467,7 @@
               <tr>
 
                 <th scope="col">PRODUCT NAME</th>
-                <th scope="col">Price($)</th>
+                <th scope="col">Price(VND)</th>
                 <th scope="col">Category</th>
                 <th scope="col"></th>
                 <th scope="col"></th>

@@ -61,7 +61,7 @@ class HomepageController extends Controller
             'ui.new',
             ["customer" => (object)[
                 'id_c' => '',
-                'fullName_c' => '',
+                'fullname_c' => '',
                 'dob' => '',
                 'gender'=>'',
                 'phone_c' => '',
@@ -100,7 +100,7 @@ class HomepageController extends Controller
         $this->formValidate($request)->validate(); //shortcut
 
         $customer = (object)[
-            'fullName_c' => $request->input('fullName_c'),
+            'fullname_c' => $request->input('fullname_c'),
             'dob' => $request->input('dob'),
             'gender' => $request->input('gender'),
             'phone_c' => $request->input('phone_c'),
@@ -140,15 +140,15 @@ class HomepageController extends Controller
         return Validator::make(
             $request->all(),
             [
-                'fullName_c' => ['required','min:5'],
+                'fullname_c' => ['required','min:5'],
                 'dob' => ['required','date_format:"Y-m-d"'],
                 'phone_c' => ['required','starts_with:0','digits:11'],
                 'email_c' => ['required','email'],
 
             ],
             [
-                'fullName_c.required'=>'Please enter Full name',
-                'fullName_c.min'=>'Enter Full Name up to 5 characters',
+                'fullname_c.required'=>'Please enter Full name',
+                'fullname_c.min'=>'Enter Full Name up to 5 characters',
                 'phone_c.required'=>'Please enter Phone',
                 'phone_c.starts_with'=>'Enter a phone number starting with 0',
                 'phone_c.digits'=>'Please enter exactly 11 numbers',

@@ -71,7 +71,7 @@ class ProductController extends Controller
             'price_p' => $request->input('price_p'),
             'size_p' => $request->input('size_p'),
             'description_p' => $request->input('description_p'),
-            'categoryId' => $request->input('category')
+            'categoryid' => $request->input('category')
         ];
 
         $newId = ProductRepos::insert($product);
@@ -115,7 +115,7 @@ class ProductController extends Controller
             'price_p' => $request->input('price_p'),
             'size_p' => $request->input('size_p'),
             'description_p' => $request->input('description_p'),
-            'categoryId' => $request->input('category')
+            'categoryid' => $request->input('category')
 
         ];
         ProductRepos::update($product);

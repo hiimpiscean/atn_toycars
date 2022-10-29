@@ -10,7 +10,7 @@ class ProductRepos
     public static function getAllProductWithCategory() {
         $sql = 'select p.*, c.name_cate as categoryName ';
         $sql .= 'from product as p ';
-        $sql .= 'join category as c on p.categoryId = c.id_cate ';
+        $sql .= 'join category as c on p.categoryid = c.id_cate ';
         $sql .= 'order by p.name_p';
 
         return DB::select ($sql);
@@ -26,7 +26,7 @@ class ProductRepos
 
     public static function insert($product){
         $sql = 'insert into product ';
-        $sql .= '(name_p, image_p, price_p, size_p, description_p, categoryId) ';
+        $sql .= '(name_p, image_p, price_p, size_p, description_p, categoryid) ';
         $sql .= 'values (?, ?, ?, ?, ?, ?) ';
 
         $result =  DB::insert($sql,
@@ -36,7 +36,7 @@ class ProductRepos
                 $product->price_p ,
                 $product->size_p ,
                 $product->description_p ,
-                $product->categoryId]);
+                $product->categoryid]);
 
         if($result){
             return DB::getPdo()->lastInsertId();//lastInsertId : lấy id cuối cùng vừa được insert vào database
@@ -48,7 +48,7 @@ class ProductRepos
 
     public static function update($product){
         $sql = 'update product ';
-        $sql .= 'set name_p = ?, image_p = ?, price_p = ?, size_p = ?, description_p = ?, categoryId = ? ';
+        $sql .= 'set name_p = ?, image_p = ?, price_p = ?, size_p = ?, description_p = ?, categoryid = ? ';
         // set cái mới
         $sql .= 'where id_p = ? ';
 
@@ -59,7 +59,7 @@ class ProductRepos
                 $product->price_p,
                 $product->size_p,
                 $product->description_p,
-                $product->categoryId,
+                $product->categoryid,
                 $product->id_p]);
 
     }

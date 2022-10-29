@@ -30,7 +30,7 @@ class AdminRepos
 
         DB::update($sql, [
             $admin->username,
-            $admin->fullName_a,
+            $admin->fullname_a,
             $admin->phone_a,
             $admin->email_a,
             $admin->password,
