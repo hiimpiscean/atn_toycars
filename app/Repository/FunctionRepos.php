@@ -7,9 +7,10 @@ use Illuminate\Support\Facades\DB;
 class FunctionRepos
 {
     public static function searchForProducts($query) {
+
         $sql = 'select p.* ';
         $sql .= 'from product as p ';
-        $sql .= 'where LOCATE(?, name_p) > 0 ';
+        $sql .= 'WHERE name_p ~* ?';
         return DB::select($sql, [$query]);
     }
     public static function getProductsByCateId($id_c){

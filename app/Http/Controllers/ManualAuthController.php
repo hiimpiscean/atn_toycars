@@ -1,34 +1,82 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Repository\adminRepos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class ManualAuthController extends Controller
 {
-    public function ask(){
-        return view('bookworm.manualAuth.login');
+    public function ask()
+    {
+        return view('product.manualAuth.login');
     }
 
-    public function signin(Request $request){
-
-        //TODO: write your code to verify username and password
-        /**
-         * you have to check if username and password
-         * match a record in database
-         * then save username in Session and move to next page
-         * Otherwise, go back to login form
-         */
-
-        Session::put('username', $request->input('username'));
-        return redirect()->route('book.index');
+    public function signin(Request $request)
+    {
+        $this->formValidateLogin($request)->validate();
+        $informations = adminRepos::getAllAdmin();
+        $username = $request->input('username');
+        $password = $request->input('password');
+        foreach ($informations as $i) {
+            if (($i->username) == $username && ($i->password) == sha1($password)) {
+                Session::put('username', $request->input('username'));
+                return redirect()->route('product.index');
+            }
+        }
+        return redirect()->action('ManualAuthController@ask');
     }
 
-    public function signout(){
-        if (Session::has('username')){
+
+    public function signout()
+    {
+        if (Session::has('username')) {
             Session::forget('username');
         }
         return redirect()->action('ManualAuthController@ask');
+    }
+
+    private function formValidateLogin($request)
+    {
+        return Validator::make(
+            $request->all(),
+            [
+                'username', 'password' => ['required',
+                    function ($attribute, $value, $fail) {//closure
+                        $informations = adminRepos::getAllAdmin();
+                        $a = 0;
+                        foreach ($informations as $i) {
+                            if (($value == $i->username) && (sha1($value) == $i->password)) {
+                                $a = 0;
+                                break;
+                            } else {
+                                $a += 1;
+                            }
+                        }
+                        if ($a != 0) {
+                            $fail('Username or password is not correct!');
+                        }
+                    }
+                ]/*,
+                'password' => ['required',
+                    function ($attribute, $value, $fail) {
+                        $informations = adminRepos::getAllAdmin();
+                        $a = 0;
+                        foreach ($informations as $i) {
+                            if (sha1($value) == $i->password) {
+                                $a = 0;
+                                break;
+                            } else {
+                                $a += 1;
+                            }
+                        }
+                        if ($a != 0) {
+                            $fail('Password is not correct');
+                        }
+                    }
+                ]*/
+            ]
+        );
     }
 }

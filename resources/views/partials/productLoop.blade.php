@@ -3,22 +3,22 @@
               <div class="box">
                 <div>
                   <div class="img-box">
-                    <a href="{{route('hanUi.details', $p->id_p)}}">
+                    <a href="{{route('ui.details', $p->id_p)}}">
                       <img src="{{asset('images/handicraf/'. $p->image_p)}}"  alt="">
                     </a>
                   </div>
                   <div class="detail-box">
                     <h5>
-                      <a class="text-light" href="{{route('hanUi.details', $p->id_p)}}" >{{$p->name_p}}</a>
+                      <a class="text-light" href="{{route('ui.details', $p->id_p)}}" >{{$p->name_p}}</a>
                     </h5>
                     <p>
                       {{$p->description_p}}
                     </p>
                     <div class="options">
                       <h6>
-                        ${{$p->price_p}}
+                        VND {{$p->price_p}}
                       </h6>
-                      <a href="{{route('hanUi.thank')}}">
+                      <a href="{{route('ui.thank')}}">
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>

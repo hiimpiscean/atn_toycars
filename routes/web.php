@@ -22,129 +22,129 @@ use Illuminate\Support\Facades\Route;
 //});
 
 //////////////client////////////
-
-Route::group(['prefix' => '/'], function () {
+Route::get('/',function(){
+    return view('ui.home');
+})->name('ui.index');
+Route::group(['prefix' => 'home'], function () {
 
     Route::get('products', [
-        'uses' => 'HanController@index',
-        'as' => 'hanUi.home'
+        'uses' => 'HomepageController@index',
+        'as' => 'ui.home'
     ]);
 // home
-    Route::get('',function(){
-       return view('hanUi.home');
-    })->name('hanUi.index');
+
 
     Route::get('category/{id_cate}',[
-        'uses' => 'HanController@getproductsfromcate',
-        'as' => 'hanUi.showproducts'
+        'uses' => 'HomepageController@getproductsfromcate',
+        'as' => 'ui.showproducts'
     ]);
     Route::get('category',[
-        'uses' => 'HanController@listcate',
-        'as' => 'hanUi.category'
+        'uses' => 'HomepageController@listcate',
+        'as' => 'ui.category'
     ]);
     //details
 
     Route::get('details/{id_p?}',[
-        'uses' => 'HanController@showdetails',
-        'as' => 'hanUi.details'
+        'uses' => 'HomepageController@showdetails',
+        'as' => 'ui.details'
     ]);
     Route::get('show/{id_p}',[
-        'uses' => 'HanController@show',
-        'as' => 'hanUi.show'
+        'uses' => 'HomepageController@show',
+        'as' => 'ui.show'
     ]);
 
     Route::get('create',[
-        'uses' => 'HanController@create',
-        'as' => 'hanUi.create'
+        'uses' => 'HomepageController@create',
+        'as' => 'ui.create'
     ]);
 
     Route::post('create',[
-        'uses' => 'HanController@storecustomer',
-        'as' => 'hanUi.store'
+        'uses' => 'HomepageController@storecustomer',
+        'as' => 'ui.store'
     ]);
 
     Route::get('update/{id_p}',[
-        'uses' => 'HanController@edit',
-        'as' => 'hanUi.edit'
+        'uses' => 'HomepageController@edit',
+        'as' => 'ui.edit'
     ]);
 
     Route::post('update/{id_p}',[
-        'uses' => 'HanController@update',
-        'as' => 'hanUi.update'
+        'uses' => 'HomepageController@update',
+        'as' => 'ui.update'
     ]);
 
     Route::get('search/',[
-        'uses' => 'HanController@search',
-        'as' => 'hanUi.search'
+        'uses' => 'HomepageController@search',
+        'as' => 'ui.search'
     ]);
     Route::get('thanks',function(){
-        return view('hanUi.thankyou');
-    })->name('hanUi.thank');
+        return view('ui.thankyou');
+    })->name('ui.thank');
 
 
 });
 ////////////////Login Admin Handicraft////////////////////////////////////
 ///
-Route::group(['prefix' => 'authHan'], function (){
+Route::group(['prefix' => 'auth'], function (){
     Route::get('login',[
-        'uses' => 'ManualAuthHanController@ask',
-        'as' => 'authHan.ask'
+        'uses' => 'ManualAuthController@ask',
+        'as' => 'auth.ask'
     ]);
 
     Route::post('login',[
-        'uses' => 'ManualAuthHanController@signin',
-        'as' => 'authHan.signin'
+        'uses' => 'ManualAuthController@signin',
+        'as' => 'auth.signin'
     ]);
 
     Route::get('logout',[
-        'uses' => 'ManualAuthHanController@signout',
-        'as' => 'authHan.signout'
+        'uses' => 'ManualAuthController@signout',
+        'as' => 'auth.signout'
     ]);
 });
 ///////////handicraftRepos/////////////////////////
 
 Route::group(
-    ['prefix' => 'handicraftrepos'],
+    ['prefix' => 'product', 'middleware' => ['manual.auth']],
     function () {
 
     Route::get('', [
-        'uses' => 'HandicraftControllerWithRepos@index',
-        'as' => 'handicraft.index'
+        'uses' => 'ProductController@index',
+        'as' => 'product.index'
     ]);
 
     Route::get('show/{id_p}',[
-        'uses' => 'HandicraftControllerWithRepos@show',
-        'as' => 'handicraft.show'
+        'uses' => 'ProductController@show',
+        'as' => 'product.show'
     ]);
 
     Route::get('create',[
-        'uses' => 'HandicraftControllerWithRepos@create',
-        'as' => 'handicraft.create'
+        'uses' => 'ProductController@create',
+        'as' => 'product.create'
     ]);
 
     Route::post('create',[
-        'uses' => 'HandicraftControllerWithRepos@store',
-        'as' => 'handicraft.store'
+        'uses' => 'ProductController@store',
+        'as' => 'product.store'
     ]);
 
     Route::get('update/{id_p}',[
-        'uses' => 'HandicraftControllerWithRepos@edit',
-        'as' => 'handicraft.edit'
+        'uses' => 'ProductController@edit',
+        'as' => 'product.edit'
     ]);
 
     Route::post('update/{id_p}',[
-        'uses' => 'HandicraftControllerWithRepos@update',
-        'as' => 'handicraft.update'
+        'uses' => 'ProductController@update',
+        'as' => 'product.update'
     ]);
 
     Route::get('delete/{id_p}', [
-        'uses' => 'HandicraftControllerWithRepos@confirm',
-        'as' => 'handicraft.confirm'
+        'uses' => 'ProductController@confirm',
+        'as' => 'product.confirm'
     ]);
 
     Route::post('delete/{id_p}',[
-        'uses' => 'HandicraftControllerWithRepos@destroy',
-        'as' => 'handicraft.destroy'
+        'uses' => 'ProductController@destroy',
+        'as' => 'product.destroy'
     ]);
 
 
@@ -152,24 +152,24 @@ Route::group(
 
 /////////////admin///////////////////
 
-Route::group(['prefix' => 'adminrepos'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['manual.auth']], function () {
     Route::get('', [
-        'uses' => 'AdminControllerWithRepos@index',
+        'uses' => 'AdminController@index',
         'as' => 'admin.index'
     ]);
 
     Route::get('show/{id_a}',[
-        'uses' => 'AdminControllerWithRepos@show',
+        'uses' => 'AdminController@show',
         'as' => 'admin.show'
     ]);
 
     Route::get('update/{id_a}',[
-        'uses' => 'AdminControllerWithRepos@edit',
+        'uses' => 'AdminController@edit',
         'as' => 'admin.edit'
     ]);
 
     Route::post('update/{id_a}',[
-        'uses' => 'AdminControllerWithRepos@update',
+        'uses' => 'AdminController@update',
         'as' => 'admin.update'
     ]);
 
@@ -179,78 +179,78 @@ Route::group(['prefix' => 'adminrepos'], function () {
 ///////////////Category////////////////////
 
 
-Route::group(['prefix' => 'categoryrepos'], function () {
+Route::group(['prefix' => 'category', 'middleware' => ['manual.auth']], function () {
 
     Route::get('', [
-        'uses' => 'CategoryControllerWithRepos@index',
+        'uses' => 'CategoryController@index',
         'as' => 'category.index'
     ]);
 
     Route::get('show/{id_cate}',[
-        'uses' => 'CategoryControllerWithRepos@show',
+        'uses' => 'CategoryController@show',
         'as' => 'category.show'
     ]);
 
     Route::get('create',[
-        'uses' => 'CategoryControllerWithRepos@create',
+        'uses' => 'CategoryController@create',
         'as' => 'category.create'
     ]);
 
     Route::post('create',[
-        'uses' => 'CategoryControllerWithRepos@store',
+        'uses' => 'CategoryController@store',
         'as' => 'category.store'
     ]);
 
     Route::get('update/{id_cate}',[
-        'uses' => 'CategoryControllerWithRepos@edit',
+        'uses' => 'CategoryController@edit',
         'as' => 'category.edit'
     ]);
 
     Route::post('update/{id_cate}',[
-        'uses' => 'CategoryControllerWithRepos@update',
+        'uses' => 'CategoryController@update',
         'as' => 'category.update'
     ]);
 
     Route::get('delete/{id_cate}', [
-        'uses' => 'CategoryControllerWithRepos@confirm',
+        'uses' => 'CategoryController@confirm',
         'as' => 'category.confirm'
     ]);
 
     Route::post('delete/{id_cate}',[
-        'uses' => 'CategoryControllerWithRepos@destroy',
+        'uses' => 'CategoryController@destroy',
         'as' => 'category.destroy'
     ]);
 });
 
 ////////////////////////Customer////////////////////////////////////
-Route::group(['prefix' => 'customerrepos'], function () {
+Route::group(['prefix' => 'customer', 'middleware' => ['manual.auth']], function () {
     Route::get('', [
-        'uses' => 'CustomerControllerWithRepos@index',
+        'uses' => 'CustomerController@index',
         'as' => 'customer.index'
     ]);
 
     Route::get('show/{id_c}',[
-        'uses' => 'CustomerControllerWithRepos@show',
+        'uses' => 'CustomerController@show',
         'as' => 'customer.show'
     ]);
 
     Route::get('update/{id_c}',[
-        'uses' => 'CustomerControllerWithRepos@edit',
+        'uses' => 'CustomerController@edit',
         'as' => 'customer.edit'
     ]);
 
     Route::post('update/{id_c}',[
-        'uses' => 'CustomerControllerWithRepos@update',
+        'uses' => 'CustomerController@update',
         'as' => 'customer.update'
     ]);
 
     Route::get('delete/{id_c}', [
-        'uses' => 'CustomerControllerWithRepos@confirm',
+        'uses' => 'CustomerController@confirm',
         'as' => 'customer.confirm'
     ]);
 
     Route::post('delete/{id_c}',[
-        'uses' => 'CustomerControllerWithRepos@destroy',
+        'uses' => 'CustomerController@destroy',
         'as' => 'customer.destroy'
     ]);
 });
