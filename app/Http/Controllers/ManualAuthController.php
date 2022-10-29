@@ -15,7 +15,7 @@ class ManualAuthController extends Controller
 
     public function signin(Request $request)
     {
-        $this->formValidateLogin($request)->validate();
+       // $this->formValidateLogin($request)->validate();
         $informations = AdminRepos::getAllAdmin();
         $username = $request->input('username');
         $password = $request->input('password');
@@ -25,7 +25,8 @@ class ManualAuthController extends Controller
                 return redirect()->route('product.index');
             }
         }
-        return redirect()->action('ManualAuthController@ask');
+        return redirect()->action('ManualAuthController@ask')
+            ->withErrors(['msg' => 'Username or password is incorrect!']);
     }
 
 
@@ -42,16 +43,24 @@ class ManualAuthController extends Controller
         return Validator::make(
             $request->all(),
             [
+
                 'username', 'password' => ['required',
+
                     function ($attribute, $value, $fail) {//closure
                         $informations = AdminRepos::getAllAdmin();
+                        $a = true;
+
                         foreach ($informations as $i) {
                             if (($value == $i->username) && (sha1($value) == $i->password)) {
                                 break;
                             } else {
-                                $fail('Username or password is not correct!');
+                                $a = false;
                             }
                         }
+                        if ($a = false)
+                            return redirect()
+                                ->action('AdminController@index')
+                                ->withErrors(['msg' => 'Cannot update admin with ID: '.$id_a.'!']);
                     }
                 ]/*,
                 'password' => ['required',
