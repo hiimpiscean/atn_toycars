@@ -38,49 +38,5 @@ class ManualAuthController extends Controller
         return redirect()->action('ManualAuthController@ask');
     }
 
-    private function formValidateLogin($request)
-    {
-        return Validator::make(
-            $request->all(),
-            [
 
-                'username', 'password' => ['required',
-
-                    function ($attribute, $value, $fail) {//closure
-                        $informations = AdminRepos::getAllAdmin();
-                        $a = true;
-
-                        foreach ($informations as $i) {
-                            if (($value == $i->username) && (sha1($value) == $i->password)) {
-                                break;
-                            } else {
-                                $a = false;
-                            }
-                        }
-                        if ($a = false)
-                            return redirect()
-                                ->action('AdminController@index')
-                                ->withErrors(['msg' => 'Cannot update admin with ID: '.$id_a.'!']);
-                    }
-                ]/*,
-                'password' => ['required',
-                    function ($attribute, $value, $fail) {
-                        $informations = AdminRepos::getAllAdmin();
-                        $a = 0;
-                        foreach ($informations as $i) {
-                            if (sha1($value) == $i->password) {
-                                $a = 0;
-                                break;
-                            } else {
-                                $a += 1;
-                            }
-                        }
-                        if ($a != 0) {
-                            $fail('Password is not correct');
-                        }
-                    }
-                ]*/
-            ]
-        );
-    }
 }
