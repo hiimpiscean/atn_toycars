@@ -230,7 +230,7 @@
 
   {{--  New Form--}}
   <body class="rong">
-  <form action="{{route('hanUi.store')}}" method="post">
+  <form action="{{route('ui.store')}}" method="post">
     <input type="hidden" name="id_c" value="{{old('id_c')?? $customer->id_c}}">
 
     <div class="content-wrapper body-form">
