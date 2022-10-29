@@ -104,7 +104,7 @@ Route::group(['prefix' => 'authHan'], function (){
 ///////////handicraftRepos/////////////////////////
 
 Route::group(
-    ['prefix' => 'handicraftrepos', 'middleware' => ['manualHan.auth']],
+    ['prefix' => 'handicraftrepos'],
     function () {
 
     Route::get('', [
@@ -152,7 +152,7 @@ Route::group(
 
 /////////////admin///////////////////
 
-Route::group(['prefix' => 'adminrepos', 'middleware' => ['manualHan.auth']], function () {
+Route::group(['prefix' => 'adminrepos'], function () {
     Route::get('', [
         'uses' => 'AdminControllerWithRepos@index',
         'as' => 'admin.index'
@@ -179,7 +179,7 @@ Route::group(['prefix' => 'adminrepos', 'middleware' => ['manualHan.auth']], fun
 ///////////////Category////////////////////
 
 
-Route::group(['prefix' => 'categoryrepos', 'middleware' => ['manualHan.auth']], function () {
+Route::group(['prefix' => 'categoryrepos'], function () {
 
     Route::get('', [
         'uses' => 'CategoryControllerWithRepos@index',
@@ -223,7 +223,7 @@ Route::group(['prefix' => 'categoryrepos', 'middleware' => ['manualHan.auth']], 
 });
 
 ////////////////////////Customer////////////////////////////////////
-Route::group(['prefix' => 'customerrepos', 'middleware' => ['manualHan.auth']], function () {
+Route::group(['prefix' => 'customerrepos'], function () {
     Route::get('', [
         'uses' => 'CustomerControllerWithRepos@index',
         'as' => 'customer.index'
