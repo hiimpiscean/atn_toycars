@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Repository\adminRepos;
+use App\Repository\AdminRepos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -16,7 +16,7 @@ class ManualAuthController extends Controller
     public function signin(Request $request)
     {
         $this->formValidateLogin($request)->validate();
-        $informations = adminRepos::getAllAdmin();
+        $informations = AdminRepos::getAllAdmin();
         $username = $request->input('username');
         $password = $request->input('password');
         foreach ($informations as $i) {
@@ -44,7 +44,7 @@ class ManualAuthController extends Controller
             [
                 'username', 'password' => ['required',
                     function ($attribute, $value, $fail) {//closure
-                        $informations = adminRepos::getAllAdmin();
+                        $informations = AdminRepos::getAllAdmin();
                         $a = 0;
                         foreach ($informations as $i) {
                             if (($value == $i->username) && (sha1($value) == $i->password)) {
@@ -61,7 +61,7 @@ class ManualAuthController extends Controller
                 ]/*,
                 'password' => ['required',
                     function ($attribute, $value, $fail) {
-                        $informations = adminRepos::getAllAdmin();
+                        $informations = AdminRepos::getAllAdmin();
                         $a = 0;
                         foreach ($informations as $i) {
                             if (sha1($value) == $i->password) {
