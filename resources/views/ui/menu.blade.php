@@ -428,43 +428,9 @@
     <!--  section -->
     <section class="book_section layout_padding">
         <div class="heading_container">
-            <h2>
-                Other products
-            </h2>
-        </div>
-        <div class="card-group">
-            <div class="card">
-                <img class="card-img-top" width="60px" src="{{asset('images/images/nha1.jpg')}}" alt="Card image cap">
-                <div class="card-body">
-                    <div class="heading_container" style="font-family: Cursive">
-                        Sedan
-                    </div>
-                    <p class="card-text"></p>
-                    <p class="card-text"><small class="text-muted"></small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" width="60px" src="{{asset('images/images/rohoa1.jpg')}}" alt="Card image cap">
-                <div class="card-body">
-                    <div class="heading_container" style="font-family: Cursive">
-                        Trucks
-                    </div>
 
-                    <p class="card-text"></p>
-                    <p class="card-text"><small class="text-muted"></small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" width="60px" src="{{asset('images/images/nha.jpg')}}" alt="Card image cap">
-                <div class="card-body">
-                    <div class="heading_container" style="font-family: Cursive">
-                        Buses
-                    </div>
-                    <p class="card-text"></p>
-                    <p class="card-text"><small class="text-muted"></small></p>
-                </div>
-            </div>
         </div>
+
     </section>
 
     <!-- end client section -->
