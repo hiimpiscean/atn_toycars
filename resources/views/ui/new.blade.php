@@ -231,7 +231,7 @@
   {{--  New Form--}}
   <body class="rong">
   <form action="{{route('ui.store')}}" method="post">
-    <input type="hidden" name="id_c" value="{{old('id_c')?? $customer->id_c}}">
+    <input type="hidden" name="id_c" value="">
 
     <div class="content-wrapper body-form">
       <div class="content">
@@ -258,20 +258,20 @@
                 <p class="content-item">
                   <label>Full Name
 
-                    <input type="text" class="form-control" id="fullname_c" name="fullname_c" value="{{old('fullname_c')?? $customer->fullname_c}}">
+                    <input type="text" class="form-control" id="fullname_c" name="fullname_c" value="">
                   </label>
                 </p>
 
                 <p class="content-item">
                   <label>DOB
-                    <input type="date" class="form-control" id="dob" name="dob" value="{{old('dob')?? $customer->dob}}">
+                    <input type="date" class="form-control" id="dob" name="dob" value="">
 
                   </label>
                 </p>
 
                 <label class="content-item">Gender
 
-                  <select class="form-control" id="gender" name="gender" value="{{old('gender')?? $customer->gender}}">
+                  <select class="form-control" id="gender" name="gender" value="">
                     <option>Female</option>
                     <option>Male</option>
                     <option>Other</option>
@@ -280,13 +280,13 @@
                 <p class="content-item">
 
                   <label>Email
-                    <input type="text" class="form-control" id="email_c" name="email_c" value="{{old('email_c')?? $customer->email_c}}">
+                    <input type="text" class="form-control" id="email_c" name="email_c" value="">
                   </label>
                 </p>
 
                 <p class="content-item">
                   <label>Address
-                    <input type="text" class="form-control" id="address_c" name="address_c" value="{{old('address_c')?? $customer->address_c}}">
+                    <input type="text" class="form-control" id="address_c" name="address_c" value="">
 
                   </label>
 
@@ -294,7 +294,7 @@
                 <p class="content-item">
                   <label>Phone
 
-                    <input type="text" class="form-control" id="phone_c" name="phone_c" value="{{old('phone_c')?? $customer->phone_c}}">
+                    <input type="text" class="form-control" id="phone_c" name="phone_c" value="">
                   </label>
                 </p>
                 @csrf
