@@ -22,9 +22,6 @@ class CategoryRepos
         return DB::select($sql, [$id]);
     }
 
-
-
-    /////////////sai//////////////
     public static function getCategoryByProductId($productId){
         $sql = 'select c.* ';
         $sql .= 'from category as c ';

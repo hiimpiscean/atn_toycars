@@ -18,7 +18,6 @@ class AdminRepos
         $sql = 'select a.* ';
         $sql .= 'from admin as a ';
         $sql .= 'where a.id_a = ? ';
-//        lọc các dòng a.id_a
 
         return DB::select($sql, [$id_a]);
     }

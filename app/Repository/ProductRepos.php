@@ -39,7 +39,7 @@ class ProductRepos
                 $product->categoryid]);
 
         if($result){
-            return DB::getPdo()->lastInsertId();//lastInsertId : lấy id cuối cùng vừa được insert vào database
+            return DB::getPdo()->lastInsertId();
 
         } else {
             return -1;
@@ -49,7 +49,6 @@ class ProductRepos
     public static function update($product){
         $sql = 'update product ';
         $sql .= 'set name_p = ?, image_p = ?, price_p = ?, size_p = ?, description_p = ?, categoryid = ? ';
-        // set cái mới
         $sql .= 'where id_p = ? ';
 
         DB::update($sql,

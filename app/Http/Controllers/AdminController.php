@@ -23,8 +23,7 @@ class AdminController extends Controller
         $admin = AdminRepos::getAdminById($id_a); //this is always an array
         return view('admin.show',
             [
-                'admin' => $admin[0] //get the first element
-//                lấy admin đó , admin array tại vị trí 0( lấy phần tử đầu tiên
+                'admin' => $admin[0]
             ]
         );
     }
