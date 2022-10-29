@@ -436,7 +436,7 @@
                       </td>
 
                       <td class=" "  >{{$p->price_p}}</td>
-                      <td class=" ">{{$p->categoryName}}</td>
+                      <td class=" ">{{$p->categoryname}}</td>
                       <td class="but"><a type="button" class="tm-product-delete-link "
                              href="{{route('handicraft.show', ['id_p' => $p->id_p])}}"
                         ><i class="bi bi-eye"></i></a>

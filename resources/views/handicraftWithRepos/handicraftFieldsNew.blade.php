@@ -48,7 +48,7 @@
 </div>
 
 @php
-  $cId = old('category') ?? $product->categoryId?? null;
+  $cId = old('category') ?? $product->categoryid?? null;
 
 @endphp
 

@@ -20,7 +20,7 @@
   <dd class="col-sm-9">{{ $admin->username }}</dd>
 
   <dt class="col-sm-3">FullName</dt>
-  <dd class="col-sm-9">{{ $admin->fullName_a }}</dd>
+  <dd class="col-sm-9">{{ $admin->fullname_a }}</dd>
 
 
 

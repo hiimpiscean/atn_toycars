@@ -18,7 +18,7 @@
 
 
   <dt class="col-sm-3">Full Name</dt>
-  <dd class="col-sm-9">{{ $customer->fullName_c }}</dd>
+  <dd class="col-sm-9">{{ $customer->fullname_c }}</dd>
 
   <dt class="col-sm-3">Dob</dt>
   <dd class="col-sm-9">{{ $customer->dob }}</dd>

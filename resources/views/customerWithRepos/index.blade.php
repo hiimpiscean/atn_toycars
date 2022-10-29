@@ -404,7 +404,7 @@
                           <tbody>
         @foreach($customer as $c)
                    <tr>
-                      <td class=" "  >{{$c->fullName_c}}</td>
+                      <td class=" "  >{{$c->fullname_c}}</td>
                       <td class=" "  >{{$c->dob}}</td>
                       <td class=" "  >{{$c->gender}}</td>
                       <td class=" ">{{$c->phone_c}}</td>

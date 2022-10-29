@@ -44,7 +44,7 @@
   <input type="text" class="form-control" id="description_p" name="description_p" min="0" value="{{old('description_p')?? $product->description_p}}">
 </div>
 @php
-  $cId = old('category') ?? $product->categoryId?? null;
+  $cId = old('category') ?? $product->categoryid?? null;
 
 @endphp
 <div class="form-group">

@@ -23,7 +23,7 @@
       <div class="row">
         <div class="col-md-6 mb-3 form-group">
           <label for="firstName">Full Name</label>
-          <input type="text" class="form-control" id="fullName_c" name="fullName_c" value="{{old('fullName_c')?? $customer->fullName_c}}">
+          <input type="text" class="form-control" id="fullName_c" name="fullName_c" value="{{old('fullName_c')?? $customer->fullname_c}}">
         </div>
         <div class="col-md-6 mb-3 form-group">
           <label for="lastName">DOB</label>

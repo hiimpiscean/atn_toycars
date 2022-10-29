@@ -412,7 +412,7 @@
                    <tr>
 
                      <td class=" "  >{{$a->username}}</td>
-                     <td class=" "  >{{$a->fullName_a}}</td>
+                     <td class=" "  >{{$a->fullname_a}}</td>
                      <td class=" "  >{{$a->phone_a}}</td>
                      <td class=" "  >{{$a->email_a}}</td>
 
