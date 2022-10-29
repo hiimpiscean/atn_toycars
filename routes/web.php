@@ -13,17 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+ //   return view('welcome');
+//});
 
-Route::get('blade', function () {
-    return view('viewEngine');
-});
+//Route::get('blade', function () {
+  //  return view('viewEngine');
+//});
 
 //////////////client////////////
 
-Route::group(['prefix' => 'hanUi'], function () {
+Route::group(['prefix' => '/'], function () {
 
     Route::get('products', [
         'uses' => 'HanController@index',
