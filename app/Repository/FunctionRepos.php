@@ -10,7 +10,7 @@ class FunctionRepos
         $sql = 'select p.* ';
         $sql .= 'from product as p ';
         $sql .= 'where LOCATE(?, name_p) > 0 ';
-        return DB::select($sql, $query);
+        return DB::select($sql, [$query]);
     }
     public static function getProductsByCateId($id_c){
             $sql = 'select p.* ';
