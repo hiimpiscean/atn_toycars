@@ -56,7 +56,7 @@ class AdminController extends Controller
             $admin = (object)[
                 'id_a' => $request->input('id_a'),
                 'username' => $request->input('username'),
-                'fullName_a' => $request->input('fullName_a'),
+                'fullname_a' => $request->input('fullname_a'),
                 'phone_a' => $request->input('phone_a'),
                 'email_a' => $request->input('email_a'),
                 'password' =>  hash('sha1', $request->input('new_password')),
@@ -89,7 +89,7 @@ class AdminController extends Controller
             $request->all(),
             [
                 'username' => ['required'],
-                'fullName_a' => ['required','min:5'],
+                'fullname_a' => ['required','min:5'],
                 'phone_a' => ['required','starts_with:0','digits:10'],
                 'email_a' => ['required','email'],
                 'old_password' => ['required'],
@@ -100,11 +100,11 @@ class AdminController extends Controller
             ],
             [
 
-                'fullName_a.required' => 'Please enter Full Name',
+                'fullname_a.required' => 'Please enter Full Name',
                 'phone_a.required' => 'Please enter Phone',
                 'email_a.required' => 'Please enter Email',
                 'old_password.required' => 'Please enter Password',
-                'fullName_a.min' => 'Enter Full Name up to 5 characters',
+                'fullname_a.min' => 'Enter Full Name up to 5 characters',
                 'phone_a.digits' => 'Please enter phone exactly 10 numbers',
                 'phone_a.starts_with' => 'Enter a phone number starting with 0',
                 'email_a' => 'Please enter email form',
