@@ -19,7 +19,7 @@
 
 <div class="form-group">
   <label for="fullName_a" class="font-weight-bold">Full Name</label>
-  <input type="text" class="form-control" id="fullName_a" name="fullName_a" value="{{old('fullName_a')?? $admin->fullname_a}}">
+  <input type="text" class="form-control" id="fullname_a" name="fullname_a" value="{{old('fullname_a')?? $admin->fullname_a}}">
 </div>
 
 
