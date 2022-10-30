@@ -24,7 +24,7 @@ class AdminRepos
 
     public static function update($admin){
         $sql = 'update admin ';
-        $sql .= 'set username = ?, fullname_a = ?, phone_a = ?, email_a = ?, password = sha1(?) ';
+        $sql .= 'set username = ?, fullname_a = ?, phone_a = ?, email_a = ?, password = ? ';
         $sql .= 'where id_a = ? ';
 
         DB::update($sql, [
