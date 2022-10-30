@@ -53,8 +53,8 @@ Route::group(['prefix' => 'home'], function () {
         'as' => 'ui.show'
     ]);
 
-    Route::get('create',[
-        'uses' => 'HomepageController@create',
+     Route::get('create',[
+       'uses' => 'HomepageController@create',
         'as' => 'ui.create'
     ]);
 
@@ -83,7 +83,7 @@ Route::group(['prefix' => 'home'], function () {
 
 
 });
-////////////////Login Admin Handicraft////////////////////////////////////
+////////////////Login Admin ////////////////////////////////////
 ///
 Route::group(['prefix' => 'auth'], function (){
     Route::get('login',[

@@ -15,14 +15,13 @@ class ManualAuthController extends Controller
 
     public function signin(Request $request)
     {
-       // $this->formValidateLogin($request)->validate();
-        $informations = AdminRepos::getAllAdmin();
+        $information = AdminRepos::getAllAdmin();
         $username = $request->input('username');
         $password = $request->input('password');
-        foreach ($informations as $i) {
+        foreach ($information as $i) {
             if (($i->username) == $username && ($i->password) == sha1($password)) {
                 Session::put('username', $request->input('username'));
-                return redirect()->route('product.index');
+                return redirect()->route('admin.index');
             }
         }
         return redirect()->action('ManualAuthController@ask')

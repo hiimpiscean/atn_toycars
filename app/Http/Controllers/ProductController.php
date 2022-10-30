@@ -158,14 +158,14 @@ class ProductController extends Controller
             $request->all(),
             [
                 'image_p' =>['required'],
-                'name_p'=>['required','regex:/^[^0-9][A-Za-z]*$/'],
+                'name_p'=>['required'],
                 'price_p'=>['required'],
                 'size_p' =>['required'],
             ],
             [
                 'image_p.required' => 'please enter image',
                 'name_p.required' => 'please enter name!',
-                'name_p.regex'=>'you are not allowed to input numbers or special characters!',
+
                 'price.required'=>'please enter price',
                 'size_p.required' => 'please enter size',
 
