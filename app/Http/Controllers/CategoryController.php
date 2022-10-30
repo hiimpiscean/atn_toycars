@@ -109,7 +109,7 @@ class CategoryController extends Controller
         $product = CategoryShowRepos::getCategoryWithProductsById($id_cate);
         if (count($product) > 0) {
             return redirect()->action('CategoryController@index')
-                ->with('msg', 'Can not delete!!! Please check products before delete category!!!');
+                ->withErrors('msg', 'Can not delete!!! Please check products before delete category!!!');
         } else {
             CategoryShowRepos::delete($id_cate);
             return redirect()->action('CategoryController@index')
