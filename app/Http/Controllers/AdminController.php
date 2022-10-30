@@ -90,10 +90,10 @@ class AdminController extends Controller
             [
                 'username' => ['required'],
                 'fullName_a' => ['required','min:5'],
-                'phone_a' => ['required','starts_with:0','digits:11'],
+                'phone_a' => ['required','starts_with:0','digits:10'],
                 'email_a' => ['required','email'],
                 'old_password' => ['required'],
-                'new_password' => ['required','regex:/[A-Z]$/'],
+                'new_password' => ['required','min:8'],
                 'confirm_password' => ['required_with:new_password','same:new_password'],
 
 
@@ -105,10 +105,10 @@ class AdminController extends Controller
                 'email_a.required' => 'Please enter Email',
                 'old_password.required' => 'Please enter Password',
                 'fullName_a.min' => 'Enter Full Name up to 5 characters',
-                'phone_a.digits' => 'Please enter phone exactly 11 numbers',
+                'phone_a.digits' => 'Please enter phone exactly 10 numbers',
                 'phone_a.starts_with' => 'Enter a phone number starting with 0',
                 'email_a' => 'Please enter email form',
-                'new_password.regex'=>'Password\'s last character must be a capital letter!',
+                'new_password.min'=>'Password must be equal or more than 8 letters!',
                 'confirm_password.same'=>'Password confirmation mismatch!',
             ]
         );
