@@ -93,7 +93,7 @@ class CustomerController extends Controller
             [
                 'fullname_c' => ['required','min:5'],
                 'dob' => ['required','date_format:"Y-m-d"'],
-                'phone_c' => ['required','starts_with:0','digits:11'],
+                'phone_c' => ['required','starts_with:0','digits:10'],
                 'email_c' => ['required','email'],
 
 
@@ -103,7 +103,7 @@ class CustomerController extends Controller
                 'fullname_c.min'=>'Enter Full Name up to 5 characters',
                 'phone_c.required'=>'Please enter Phone',
                 'phone_c.starts_with'=>'Enter a phone number starting with 0',
-                'phone_c.digits'=>'Please enter exactly 11 numbers',
+                'phone_c.digits'=>'Please enter exactly 10 numbers',
                 'email_c.required'=>'Please enter Email',
                 'email_c.email'=>'Please enter email form',
 
