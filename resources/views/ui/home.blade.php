@@ -21,7 +21,7 @@
 
                                         <h4>
                                           ATN is a retailer selling toy cars, based in Hanoi, Vietnam.<br>
-                                          All the products are imported directly from Tomica, Japan.
+                                          All the products are imported directly from Tomica, a well-known brand selling toy cars in Japan.
                                         </h4>
                                     </div>
                                 </div>
