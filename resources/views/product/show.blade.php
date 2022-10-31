@@ -13,7 +13,7 @@
         }
     </style>
     <div class="container">
-        <h1 class="display-4 text-center han">Handicraft Details</h1>
+        <h1 class="display-4 text-center han">Product Details</h1>
         @include('product.productDetails')
 
         <a type="button" href="{{route('product.index')}}" class="btn btn-info cancel">&lt;&lt;&nbsp;Back</a>

@@ -122,13 +122,13 @@ class CategoryController extends Controller
         return Validator::make(
             $request->all(),
             [
-                'name_cate'=>['required','regex:/^[^0-9][A-Za-z]*$/'],
+                'name_cate'=>['required'],
                 'image_cate' =>['required'],
             ],
             [
                 'name_cate.required'=>'please Enter name',
                 'image_cate.required' => 'please enter image',
-                'name_cate.regex'=>'you are not allowed to input numbers or special characters!',
+
             ]
         );
     }

@@ -30,7 +30,7 @@
     }
 
     .signup-wrapper .company-details {
-      background: url(https://www.re-thinkingthefuture.com/wp-content/uploads/2021/05/A4086-Handicraft-from-Northeast-India.jpg);
+      background: url(https://vcdn1-vnexpress.vnecdn.net/2022/07/10/2-4900-1657421812.jpg?w=0&h=0&q=100&dpr=2&fit=crop&s=rPw_X5JhQdDrGT5vJjKboQ);
       background-size: cover;
       position:relative;
 
