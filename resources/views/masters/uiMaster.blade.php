@@ -64,7 +64,7 @@
             <a href="{{route('ui.thank')}}">
               <i class="fa fa-map-marker" aria-hidden="true"></i>
               <span>
-                  Location
+                  Hanoi, Vietnam
                 </span>
             </a>
             <a href="{{route('ui.thank')}}">
