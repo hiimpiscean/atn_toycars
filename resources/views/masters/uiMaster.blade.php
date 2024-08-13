@@ -70,13 +70,13 @@
             <a href="{{route('ui.thank')}}">
               <i class="fa fa-phone" aria-hidden="true"></i>
               <span>
-                  Call +84 123456789
+                  +84 91 768 22 42
                 </span>
             </a>
             <a href="{{route('ui.thank')}}">
               <i class="fa fa-envelope" aria-hidden="true"></i>
               <span>
-                  admin@gmail.com
+                  conanchihieu@gmail.com
                 </span>
             </a>
           </div>
@@ -117,7 +117,7 @@
           Everyday
         </p>
         <p>
-          6.00 Am -11.00 Pm
+          9:00 A.M - 9:00 P.M
         </p>
       </div>
     </div>

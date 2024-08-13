@@ -67,7 +67,7 @@
                         <strong>VND {{$product->price_p}}</strong>
                     </div>
                     <div class="col-md-8">
-                        <a type="button" href="shoppingbasket.html" data-toggle="modal" data-target="#addToBasketModal"
+                        <a type="button" href="{{route('ui.thank')}}"
                            class="btn btn-success float-right">
                             Buy now
                         </a>
