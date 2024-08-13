@@ -12,7 +12,7 @@
 {{--//////////////////////////////////////////////////////--}}
 
 <div class="container bacColor">
-  <nav class="navbar navbar-expand-lg custom_nav-container ">
+  <nav class="navbar navbar-expand-lg custom_nav-container  ">
     <a class="navbar-brand" href="{{route('ui.index')}}" style="color: white " >
       <img src="{{asset('images/handicraf/logo1.png')}}" width=35" height="40" class="d-inline-block align-top" alt="">
 
