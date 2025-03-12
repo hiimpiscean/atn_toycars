@@ -55,7 +55,7 @@ class TeacherController extends Controller
         {
             $teacher = (object)[
                 'id_t' => $request->input('id_t'),
-                'username' => $request->input('username'),
+          //      'username' => $request->input('username'),
                 'fullname_t' => $request->input('fullname_t'),
                 'phone_t' => $request->input('phone_t'),
                 'email_t' => $request->input('email_t'),
@@ -88,7 +88,7 @@ class TeacherController extends Controller
         return Validator::make(
             $request->all(),
             [
-                'username' => ['required'],
+             //   'username' => ['required'],
                 'fullname_t' => ['required','min:5'],
                 'phone_t' => ['required','starts_with:0','digits:10'],
                 'email_t' => ['required','email'],

@@ -9,7 +9,7 @@ class TeacherRepos
     public static function getAllTeacher() {
         $sql = 'select t.* ';
         $sql .= 'from teacher as t ';
-        $sql .= 'order by t.username';
+        $sql .= 'order by t.email_t';
 
         return DB::select ($sql);
     }
@@ -24,11 +24,11 @@ class TeacherRepos
 
     public static function update($teacher){
         $sql = 'update teacher ';
-        $sql .= 'set username = ?, fullname_t = ?, phone_t = ?, email_t = ?, password = ? ';
+        $sql .= 'set fullname_t = ?, phone_t = ?, email_t = ?, password = ? ';
         $sql .= 'where id_t = ? ';
 
         DB::update($sql, [
-            $teacher->username,
+          //  $teacher->username,
             $teacher->fullname_t,
             $teacher->phone_t,
             $teacher->email_t,
